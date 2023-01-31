@@ -1,5 +1,5 @@
 //
-//	CatalogList.swift
+//	CatalogGrid.swift
 //	CabifyShop
 //
 //	Created by Prathamesh Kowarkar on 2023-01-31.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CatalogList: View {
+struct CatalogGrid: View {
 
 	let catalog: Catalog = .sample
 	let columns: [GridItem] = [.init(spacing: 16), .init()]
@@ -32,7 +32,7 @@ struct CatalogList: View {
 struct CatalogList_Previews: PreviewProvider {
 
 	static var previews: some View {
-		CatalogList()
+		CatalogGrid()
 	}
 
 }
