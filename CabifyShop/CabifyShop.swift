@@ -12,7 +12,7 @@ struct CabifyShop: App {
 
 	var body: some Scene {
 		WindowGroup {
-			ContentView()
+			CatalogList()
 		}
 	}
 
