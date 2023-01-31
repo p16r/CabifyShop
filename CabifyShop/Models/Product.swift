@@ -9,6 +9,7 @@ import Foundation
 
 struct Product: Hashable, Decodable {
 
+	let code: Code
 	let name: String
 	let price: Decimal
 
