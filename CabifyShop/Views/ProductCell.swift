@@ -14,21 +14,20 @@ struct ProductCell: View {
 
 	var body: some View {
 		HStack {
-			Spacer()
 			VStack(spacing: 0) {
-				Spacer(minLength: 16)
 				Text(product.code.icon)
 					.font(.system(size: size))
-					.padding(.vertical, 16)
+					.padding(.bottom, 16)
 				Text(product.name)
 					.font(.headline)
 					.padding(.bottom, 8)
 				Text(product.price, format: .currency(code: "EUR"))
-				Spacer(minLength: 16)
 			}
+			.padding(.all, 16)
+			.frame(maxHeight: .infinity)
 			.multilineTextAlignment(.center)
-			Spacer()
 		}
+		.frame(maxWidth: .infinity)
 		.background(Color(uiColor: .systemBackground))
 		.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 	}
