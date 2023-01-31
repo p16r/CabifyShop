@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ProductCell: View {
 
-	@ScaledMetric private var size = 40.0
+	@ScaledMetric private var size = 80.0
 	let product: Product
 
 	var body: some View {
@@ -26,6 +26,7 @@ struct ProductCell: View {
 				Text(product.price, format: .currency(code: "EUR"))
 				Spacer(minLength: 16)
 			}
+			.multilineTextAlignment(.center)
 			Spacer()
 		}
 		.background(Color(uiColor: .systemBackground))
