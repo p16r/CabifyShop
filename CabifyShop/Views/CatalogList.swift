@@ -21,7 +21,9 @@ struct CatalogList: View {
 					}
 				}
 			}
+			.scenePadding(.horizontal)
 			.navigationTitle("Cabify Shop")
+			.background(Color(uiColor: .systemGroupedBackground))
 		}
 	}
 
