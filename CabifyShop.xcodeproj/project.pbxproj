@@ -14,6 +14,7 @@
 		88F49CAD2988EDB9007C3C20 /* CabifyShopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CAC2988EDB9007C3C20 /* CabifyShopTests.swift */; };
 		88F49CB72988EDB9007C3C20 /* CabifyShopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CB62988EDB9007C3C20 /* CabifyShopUITests.swift */; };
 		88F49CB92988EDB9007C3C20 /* CabifyShopUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CB82988EDB9007C3C20 /* CabifyShopUITestsLaunchTests.swift */; };
+		88F49CCA2988F25D007C3C20 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CC92988F25D007C3C20 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		88F49CB22988EDB9007C3C20 /* CabifyShopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CabifyShopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F49CB62988EDB9007C3C20 /* CabifyShopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyShopUITests.swift; sourceTree = "<group>"; };
 		88F49CB82988EDB9007C3C20 /* CabifyShopUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyShopUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		88F49CC92988F25D007C3C20 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		88F49C9A2988EDB9007C3C20 /* CabifyShop */ = {
 			isa = PBXGroup;
 			children = (
+				88F49CC62988F16C007C3C20 /* Models */,
 				88F49C9B2988EDB9007C3C20 /* CabifyShop.swift */,
 				88F49C9D2988EDB9007C3C20 /* ContentView.swift */,
 				88F49C9F2988EDB9007C3C20 /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				88F49CB82988EDB9007C3C20 /* CabifyShopUITestsLaunchTests.swift */,
 			);
 			path = CabifyShopUITests;
+			sourceTree = "<group>";
+		};
+		88F49CC62988F16C007C3C20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				88F49CC92988F25D007C3C20 /* Product.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88F49C9E2988EDB9007C3C20 /* ContentView.swift in Sources */,
+				88F49CCA2988F25D007C3C20 /* Product.swift in Sources */,
 				88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
