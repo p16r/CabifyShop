@@ -14,6 +14,8 @@ struct CatalogGrid: View {
 
 	@State var selectedProduct: Product? = nil
 
+	@StateObject var viewModel = CatalogViewModel()
+
 	let catalog: Catalog = .sample
 	var columns: [GridItem] {
 		horizontalSizeClass == .compact && dynamicTypeSize.isAccessibilitySize
@@ -23,19 +25,39 @@ struct CatalogGrid: View {
 
 	var body: some View {
 		NavigationStack {
-			ScrollView {
-				LazyVGrid(columns: columns, spacing: 16) {
-					ForEach(catalog.products) { product in
-						ProductCell(product: product)
-							.onTapGesture {
-								selectedProduct = product
+			Group {
+				switch viewModel.catalog {
+					case .standby:
+						Button("Fetch Catalog", action: viewModel.fetchCatalog)
+							.background(Color(uiColor: .systemBackground))
+					case .loading:
+						ProgressView()
+							.background(Color(uiColor: .systemBackground))
+					case .success(let catalog):
+						ScrollView {
+							LazyVGrid(columns: columns, spacing: 16) {
+								ForEach(catalog.products) { product in
+									ProductCell(product: product)
+										.onTapGesture {
+											selectedProduct = product
+										}
+								}
 							}
-					}
+						}
+						.scenePadding(.horizontal)
+					case .failure(let error):
+						VStack(spacing: 8) {
+							Text(error.localizedDescription)
+							Button("Retry", action: viewModel.fetchCatalog)
+						}
+						.background(Color(uiColor: .systemBackground))
 				}
 			}
-			.scenePadding(.horizontal)
 			.navigationTitle("Cabify Shop")
 			.background(Color(uiColor: .systemGroupedBackground))
+		}
+		.task {
+			viewModel.fetchCatalog()
 		}
 	}
 
