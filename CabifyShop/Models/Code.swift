@@ -13,4 +13,15 @@ enum Code: String, Hashable, Decodable {
 	case tshirt = "TSHIRT"
 	case mug = "MUG"
 
+	var icon: String {
+		switch self {
+			case .voucher:
+				return "🏷️"
+			case .tshirt:
+				return "👕"
+			case .mug:
+				return "🍺"
+		}
+	}
+
 }
