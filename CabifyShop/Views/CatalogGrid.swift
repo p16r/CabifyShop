@@ -9,8 +9,15 @@ import SwiftUI
 
 struct CatalogGrid: View {
 
+	@Environment(\.dynamicTypeSize) var dynamicTypeSize
+	@Environment(\.horizontalSizeClass) var horizontalSizeClass
+
 	let catalog: Catalog = .sample
-	let columns: [GridItem] = [.init(spacing: 16), .init()]
+	var columns: [GridItem] {
+		horizontalSizeClass == .compact && dynamicTypeSize.isAccessibilitySize
+			? [.init()]
+			: [.init(spacing: 16), .init()]
+	}
 
 	var body: some View {
 		NavigationStack {
