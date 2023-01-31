@@ -17,6 +17,7 @@
 		88F49CC82988F187007C3C20 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CC72988F187007C3C20 /* Catalog.swift */; };
 		88F49CCA2988F25D007C3C20 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CC92988F25D007C3C20 /* Product.swift */; };
 		88F49CCC2988F290007C3C20 /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CCB2988F290007C3C20 /* Code.swift */; };
+		88F49CCE2988FA98007C3C20 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49CCD2988FA98007C3C20 /* ProductCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		88F49CC72988F187007C3C20 /* Catalog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Catalog.swift; sourceTree = "<group>"; };
 		88F49CC92988F25D007C3C20 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		88F49CCB2988F290007C3C20 /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		88F49CCD2988FA98007C3C20 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				88F49C9D2988EDB9007C3C20 /* CatalogList.swift */,
+				88F49CCD2988FA98007C3C20 /* ProductCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				88F49CCA2988F25D007C3C20 /* Product.swift in Sources */,
 				88F49C9E2988EDB9007C3C20 /* CatalogList.swift in Sources */,
 				88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */,
+				88F49CCE2988FA98007C3C20 /* ProductCell.swift in Sources */,
 				88F49CCC2988F290007C3C20 /* Code.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

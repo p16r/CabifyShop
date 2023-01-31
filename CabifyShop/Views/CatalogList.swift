@@ -10,12 +10,15 @@ import SwiftUI
 struct CatalogList: View {
 
 	let catalog: Catalog = .sample
+	let columns: [GridItem] = [.init(spacing: 16), .init()]
 
 	var body: some View {
 		NavigationStack {
-			List {
-				ForEach(catalog.products) {
-					Text($0.name)
+			ScrollView {
+				LazyVGrid(columns: columns, spacing: 16) {
+					ForEach(catalog.products) {
+						ProductCell(product: $0)
+					}
 				}
 			}
 			.navigationTitle("Cabify Shop")
