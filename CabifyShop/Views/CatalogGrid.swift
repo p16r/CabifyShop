@@ -53,6 +53,11 @@ struct CatalogGrid: View {
 						.background(Color(uiColor: .systemBackground))
 				}
 			}
+			.sheet(item: $selectedProduct) {
+				ProductDetailView(product: $0) { action, product in
+					print(action, product)
+				}
+			}
 			.navigationTitle("Cabify Shop")
 			.background(Color(uiColor: .systemGroupedBackground))
 		}
