@@ -34,17 +34,36 @@ struct CatalogGrid: View {
 						ProgressView()
 							.background(Color(uiColor: .systemBackground))
 					case .success(let catalog):
-						ScrollView {
-							LazyVGrid(columns: columns, spacing: 16) {
-								ForEach(catalog.products) { product in
-									ProductCell(product: product)
-										.onTapGesture {
-											selectedProduct = product
-										}
+						ZStack(alignment: .bottom) {
+							ScrollView {
+								LazyVGrid(columns: columns, spacing: 16) {
+									ForEach(catalog.products) { product in
+										ProductCell(product: product)
+											.onTapGesture {
+												selectedProduct = product
+											}
+									}
 								}
 							}
+							.scenePadding(.horizontal)
+							Button(
+								action: {
+									print("checkout")
+								},
+								label: {
+									Label("Checkout", systemImage: "cart")
+//									Text("Checkout")
+								}
+							)
+							.frame(height: 44)
+							.frame(maxWidth: .infinity)
+							.background(.blue)
+							.foregroundColor(.white)
+							.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+							.scenePadding(.horizontal)
+							.padding(.vertical, 16)
+							.background(.ultraThinMaterial)
 						}
-						.scenePadding(.horizontal)
 					case .failure(let error):
 						VStack(spacing: 8) {
 							Text(error.localizedDescription)
