@@ -50,7 +50,7 @@ struct CatalogGrid: View {
 								HStack(spacing: 16) {
 									NavigationLink(
 										destination: {
-											Text("checkout")
+											CheckoutView(cart: viewModel.cart)
 										},
 										label: {
 											Image(systemName: "cart.fill")
