@@ -46,48 +46,50 @@ struct CatalogGrid: View {
 								}
 							}
 							.scenePadding(.horizontal)
-							HStack(spacing: 16) {
-								Button(
-									action: {
-										print("checkout")
-									},
-									label: {
-										Image(systemName: "cart.fill")
-										VStack {
-											Text("Checkout")
-												.font(.headline)
-											Text("\(viewModel.cart.count) item(s)")
-												.font(.subheadline)
+							if viewModel.cart.isEmpty == false {
+								HStack(spacing: 16) {
+									Button(
+										action: {
+											print("checkout")
+										},
+										label: {
+											Image(systemName: "cart.fill")
+											VStack {
+												Text("Checkout")
+													.font(.headline)
+												Text("\(viewModel.cart.count) item(s)")
+													.font(.subheadline)
+											}
 										}
-									}
-								)
-								.font(.headline)
-								.padding(.vertical, 8)
-								.frame(maxWidth: .infinity)
-								.background(.blue)
-								.foregroundColor(.white)
-								.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-								Button(
-									action: {
-										viewModel.cart.removeAll()
-									},
-									label: {
-										Image(systemName: "cart.fill.badge.minus")
-										Text("Clear cart")
-											.font(.headline)
-									}
-								)
-								.font(.headline)
-								.padding(.vertical, 8)
-								.frame(maxWidth: .infinity, maxHeight: .infinity)
-								.background(.red.opacity(0.25))
-								.foregroundColor(.red)
-								.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+									)
+									.font(.headline)
+									.padding(.vertical, 8)
+									.frame(maxWidth: .infinity)
+									.background(.blue)
+									.foregroundColor(.white)
+									.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+									Button(
+										action: {
+											viewModel.cart.removeAll()
+										},
+										label: {
+											Image(systemName: "cart.fill.badge.minus")
+											Text("Clear cart")
+												.font(.headline)
+										}
+									)
+									.font(.headline)
+									.padding(.vertical, 8)
+									.frame(maxWidth: .infinity, maxHeight: .infinity)
+									.background(.red.opacity(0.25))
+									.foregroundColor(.red)
+									.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+								}
+								.fixedSize(horizontal: false, vertical: true)
+								.scenePadding(.horizontal)
+								.padding(.vertical, 16)
+								.background(.ultraThinMaterial)
 							}
-							.fixedSize(horizontal: false, vertical: true)
-							.scenePadding(.horizontal)
-							.padding(.vertical, 16)
-							.background(.ultraThinMaterial)
 						}
 					case .failure(let error):
 						VStack(spacing: 8) {
