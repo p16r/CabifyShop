@@ -48,9 +48,9 @@ struct CatalogGrid: View {
 							.scenePadding(.horizontal)
 							if viewModel.cart.isEmpty == false {
 								HStack(spacing: 16) {
-									Button(
-										action: {
-											print("checkout")
+									NavigationLink(
+										destination: {
+											Text("checkout")
 										},
 										label: {
 											Image(systemName: "cart.fill")
