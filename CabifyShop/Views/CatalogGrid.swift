@@ -55,7 +55,12 @@ struct CatalogGrid: View {
 			}
 			.sheet(item: $selectedProduct) {
 				ProductDetailView(product: $0) { action, product in
-					print(action, product)
+					switch action {
+						case .added:
+							viewModel.addToCart(product)
+						case .removed:
+							viewModel.removeFromCart(product)
+					}
 				}
 			}
 			.navigationTitle("Cabify Shop")
