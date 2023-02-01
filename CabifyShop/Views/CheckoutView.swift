@@ -10,6 +10,11 @@ import SwiftUI
 struct CheckoutView: View {
 
 	let cart: [Product]
+	let didPurchase: ([Product]) -> Void
+
+	@Environment(\.dismiss) private var dismiss
+
+	@State private var isShowingConfirmPurchaseAlert = false
 
 	var body: some View {
 		ZStack(alignment: .bottom) {
@@ -42,7 +47,7 @@ struct CheckoutView: View {
 			}
 			Button(
 				action: {
-					print("Purchase")
+					isShowingConfirmPurchaseAlert = true
 				},
 				label: {
 					Image(systemName: "checkmark")
@@ -59,6 +64,17 @@ struct CheckoutView: View {
 			.padding(.vertical, 16)
 			.background(.ultraThinMaterial)
 		}
+		.alert(isPresented: $isShowingConfirmPurchaseAlert) {
+			Alert(
+				title: Text("Confirm Purchase"),
+				message: Text("Proceed with purchase?"),
+				primaryButton: .default(Text("Purchase")) {
+					didPurchase(cart)
+					dismiss()
+				},
+				secondaryButton: .cancel()
+			)
+		}
 	}
 
 }
@@ -66,7 +82,7 @@ struct CheckoutView: View {
 struct CheckoutView_Previews: PreviewProvider {
 
 	static var previews: some View {
-		CheckoutView(cart: Catalog.sample.products)
+		CheckoutView(cart: Catalog.sample.products) { _ in }
 	}
 
 }
