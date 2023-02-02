@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProductDetailView: View {
 
+	@Environment(\.dismiss) private var dismiss
+
 	let product: Product
 	let cartAction: (CartAction, Product) -> Void
 
@@ -23,6 +25,7 @@ struct ProductDetailView: View {
 				.padding(.bottom, 16)
 			HStack(spacing: 16) {
 				Button("Add To Cart") {
+					dismiss()
 					cartAction(.added, product)
 				}
 				.font(.body.bold())
@@ -31,6 +34,7 @@ struct ProductDetailView: View {
 				.foregroundColor(.white)
 				.clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
 				Button("Remove from Cart") {
+					dismiss()
 					cartAction(.removed, product)
 				}
 				.frame(maxWidth: .infinity, minHeight: 44)
