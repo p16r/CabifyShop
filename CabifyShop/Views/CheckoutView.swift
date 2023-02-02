@@ -111,6 +111,8 @@ struct CheckoutView: View {
 			.padding(.vertical, 16)
 			.background(.ultraThinMaterial)
 		}
+		.navigationTitle("Checkout")
+		.navigationBarTitleDisplayMode(.inline)
 	}
 
 }
