@@ -13,6 +13,7 @@ struct CatalogGrid: View {
 	@Environment(\.horizontalSizeClass) var horizontalSizeClass
 
 	@State var selectedProduct: Product? = nil
+	@State var isShowingConfirmClearAlert = false
 
 	@StateObject var viewModel = CatalogViewModel()
 
@@ -71,7 +72,7 @@ struct CatalogGrid: View {
 									.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 									Button(
 										action: {
-											viewModel.clearCart()
+											isShowingConfirmClearAlert = true
 										},
 										label: {
 											Image(systemName: "cart.fill.badge.minus")
@@ -85,6 +86,16 @@ struct CatalogGrid: View {
 									.background(.red.opacity(0.25))
 									.foregroundColor(.red)
 									.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+									.alert(isPresented: $isShowingConfirmClearAlert) {
+										Alert(
+											title: Text("Confirm clear"),
+											message: Text("Clear cart?"),
+											primaryButton: .destructive(Text("Clear")) {
+												viewModel.clearCart()
+											},
+											secondaryButton: .cancel()
+										)
+									}
 								}
 								.fixedSize(horizontal: false, vertical: true)
 								.scenePadding(.horizontal)
