@@ -43,14 +43,11 @@ class CatalogViewModel: ObservableObject {
 	private func updateCatalog(_ catalog: inout Catalog, for product: Product) {
 		switch product.code {
 			case .voucher:
-				let index = catalog.products.firstIndex { $0.code == .voucher }
 				let count = cart
 					.filter { $0.product.code == .voucher }
 					.count
 				let modifiedPrice: Decimal? = count.isMultiple(of: 2) ? nil : 0
-				if let index {
-					catalog.products[index].modifiedPrice = modifiedPrice
-				}
+				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: .voucher)
 			case .tshirt:
 				let count = cart
 					.filter { $0.product.code == .tshirt }
@@ -59,13 +56,16 @@ class CatalogViewModel: ObservableObject {
 				for index in cart.indices where cart[index].product.code == .tshirt {
 					cart[index].product.modifiedPrice = modifiedPrice
 				}
-				let index = catalog.products.firstIndex { $0.code == .tshirt }
-				if let index {
-					catalog.products[index].modifiedPrice = modifiedPrice
-				}
+				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: .tshirt)
 			case .mug:
 				break
 		}
+	}
+
+	private func updateCatalog(_ catalog: inout Catalog, setNewPrice modifiedPrice: Decimal?, for code: Code) {
+		let index = catalog.products.firstIndex { $0.code == code }
+		guard let index else { return }
+		catalog.products[index].modifiedPrice = modifiedPrice
 	}
 
 }
