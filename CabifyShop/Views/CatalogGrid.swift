@@ -50,7 +50,7 @@ struct CatalogGrid: View {
 									NavigationLink(
 										destination: {
 											CheckoutView(cart: viewModel.cart) { _ in
-												viewModel.cart = []
+												viewModel.clearCart()
 											}
 										},
 										label: {
@@ -71,7 +71,7 @@ struct CatalogGrid: View {
 									.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 									Button(
 										action: {
-											viewModel.cart.removeAll()
+											viewModel.clearCart()
 										},
 										label: {
 											Image(systemName: "cart.fill.badge.minus")

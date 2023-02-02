@@ -76,4 +76,13 @@ class CatalogViewModel: ObservableObject {
 		}
 	}
 
+	func clearCart() {
+		cart.removeAll()
+		guard var catalog = catalog.value else { return }
+		for index in catalog.products.indices {
+			catalog.products[index].modifiedPrice = nil
+		}
+		self.catalog = .success(catalog)
+	}
+
 }
