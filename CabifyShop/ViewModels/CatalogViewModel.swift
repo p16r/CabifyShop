@@ -26,7 +26,34 @@ class CatalogViewModel: ObservableObject {
 	}
 
 	func addToCart(_ product: Product) {
+		guard var catalog = catalog.value else { return }
 		cart.append(.init(product: product))
+		switch product.code {
+			case .voucher:
+				let index = catalog.products.firstIndex { $0.code == .voucher }
+				let count = cart
+					.filter { $0.product.code == .voucher }
+					.count
+				if let index {
+					catalog.products[index].modifiedPrice = count.isMultiple(of: 2) ? nil : 0
+				}
+			case .tshirt:
+				let count = cart
+					.filter { $0.product.code == .tshirt }
+					.count
+				if count >= 3 {
+					for index in cart.indices where cart[index].product.code == .tshirt {
+						cart[index].product.modifiedPrice = 19
+					}
+					let index = catalog.products.firstIndex { $0.code == .tshirt }
+					if let index {
+						catalog.products[index].modifiedPrice = 19
+					}
+				}
+			case .mug:
+				break
+		}
+		self.catalog = .success(catalog)
 	}
 
 	func removeFromCart(_ product: Product) {
