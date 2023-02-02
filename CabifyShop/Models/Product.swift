@@ -14,5 +14,6 @@ struct Product: Hashable, Decodable, Identifiable {
 	let code: Code
 	let name: String
 	let price: Decimal
+	var modifiedPrice: Decimal? = nil
 
 }
