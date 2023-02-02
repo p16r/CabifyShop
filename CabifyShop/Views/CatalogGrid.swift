@@ -16,7 +16,6 @@ struct CatalogGrid: View {
 
 	@StateObject var viewModel = CatalogViewModel()
 
-	let catalog: Catalog = .sample
 	var columns: [GridItem] {
 		horizontalSizeClass == .compact && dynamicTypeSize.isAccessibilitySize
 			? [.init()]
