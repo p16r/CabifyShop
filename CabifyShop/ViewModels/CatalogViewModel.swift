@@ -43,18 +43,20 @@ class CatalogViewModel: ObservableObject {
 	private func update(_ catalog: inout Catalog, _ cart: inout [CartItem], with product: Product) {
 		switch product.code {
 			case .voucher:
+				let code: Code = .voucher
 				let count = cart
-					.filter { $0.product.code == .voucher }
+					.filter { $0.product.code == code }
 					.count
 				let modifiedPrice: Decimal? = count.isMultiple(of: 2) ? nil : 0
-				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: .voucher)
+				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: code)
 			case .tshirt:
+				let code: Code = .tshirt
 				let count = cart
-					.filter { $0.product.code == .tshirt }
+					.filter { $0.product.code == code }
 					.count
 				let modifiedPrice: Decimal? = count >= 3 ? 19 : nil
-				updateCart(&cart, setNewPrice: modifiedPrice, for: .tshirt)
-				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: .tshirt)
+				updateCart(&cart, setNewPrice: modifiedPrice, for: code)
+				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: code)
 			case .mug:
 				break
 		}
