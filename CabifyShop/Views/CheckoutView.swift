@@ -59,6 +59,17 @@ struct CheckoutView: View {
 				.background(.blue)
 				.foregroundColor(.white)
 				.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+				.alert(isPresented: $isShowingConfirmPurchaseAlert) {
+					Alert(
+						title: Text("Confirm Purchase"),
+						message: Text("Proceed with purchase?"),
+						primaryButton: .default(Text("Purchase")) {
+							didCheckout(.purchased(cart))
+							dismiss()
+						},
+						secondaryButton: .cancel()
+					)
+				}
 				Button(
 					action: {
 						isShowingConfirmClearAlert = true
@@ -74,32 +85,21 @@ struct CheckoutView: View {
 				.background(.red)
 				.foregroundColor(.white)
 				.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+				.alert(isPresented: $isShowingConfirmClearAlert) {
+					Alert(
+						title: Text("Confirm clear"),
+						message: Text("Clear cart?"),
+						primaryButton: .destructive(Text("Clear")) {
+							didCheckout(.cleared)
+							dismiss()
+						},
+						secondaryButton: .cancel()
+					)
+				}
 			}
 			.scenePadding(.horizontal)
 			.padding(.vertical, 16)
 			.background(.ultraThinMaterial)
-		}
-		.alert(isPresented: $isShowingConfirmPurchaseAlert) {
-			Alert(
-				title: Text("Confirm Purchase"),
-				message: Text("Proceed with purchase?"),
-				primaryButton: .default(Text("Purchase")) {
-					didCheckout(.purchased(cart))
-					dismiss()
-				},
-				secondaryButton: .cancel()
-			)
-		}
-		.alert(isPresented: $isShowingConfirmClearAlert) {
-			Alert(
-				title: Text("Confirm clear"),
-				message: Text("Clear cart?"),
-				primaryButton: .destructive(Text("Clear")) {
-					didCheckout(.cleared)
-					dismiss()
-				},
-				secondaryButton: .cancel()
-			)
 		}
 	}
 
