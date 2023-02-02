@@ -50,9 +50,15 @@ struct CatalogGrid: View {
 								HStack(spacing: 16) {
 									NavigationLink(
 										destination: {
-											CheckoutView(cart: viewModel.cart) { _ in
-												viewModel.clearCart()
-											}
+											CheckoutView(
+												cart: $viewModel.cart,
+												didRemoveItem: { item in
+													viewModel.removeFromCart(item.product)
+												},
+												didCheckout: { _ in
+													viewModel.clearCart()
+												}
+											)
 										},
 										label: {
 											Image(systemName: "cart.fill")

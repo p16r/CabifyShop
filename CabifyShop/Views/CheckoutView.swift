@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CheckoutView: View {
 
-	let cart: [CartItem]
+	@Binding var cart: [CartItem]
+
+	let didRemoveItem: (CartItem) -> Void
 	let didCheckout: (CheckoutAction) -> Void
 
 	@Environment(\.dismiss) private var dismiss
@@ -29,6 +31,11 @@ struct CheckoutView: View {
 								.font(.headline)
 							Spacer()
 							PriceView(for: item.product)
+						}
+					}
+					.onDelete { indexSet in
+						indexSet.forEach {
+							didRemoveItem(cart[$0])
 						}
 					}
 				}
@@ -108,7 +115,11 @@ struct CheckoutView: View {
 struct CheckoutView_Previews: PreviewProvider {
 
 	static var previews: some View {
-		CheckoutView(cart: Catalog.sample.products.map(CartItem.init)) { _ in }
+		CheckoutView(
+			cart: .constant(Catalog.sample.products.map(CartItem.init)),
+			didRemoveItem: { _ in },
+			didCheckout: { _ in }
+		)
 	}
 
 }
