@@ -19,8 +19,7 @@ struct ProductDetailView: View {
 				.frame(maxWidth: .infinity)
 			Text(product.name)
 				.font(.title)
-			Text(product.price, format: .currency(code: "EUR"))
-				.font(.subheadline)
+			PriceView(for: product)
 				.padding(.bottom, 16)
 			HStack(spacing: 16) {
 				Button("Add To Cart") {
