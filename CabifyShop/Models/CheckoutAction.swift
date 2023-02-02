@@ -9,7 +9,7 @@ import Foundation
 
 enum CheckoutAction {
 
-	case purchased([Product])
+	case purchased([CartItem])
 	case cleared
 
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CheckoutView: View {
 
-	let cart: [Product]
+	let cart: [CartItem]
 	let didCheckout: (CheckoutAction) -> Void
 
 	@Environment(\.dismiss) private var dismiss
@@ -21,14 +21,14 @@ struct CheckoutView: View {
 		ZStack(alignment: .bottom) {
 			List {
 				Section {
-					ForEach(cart) { product in
+					ForEach(cart) { item in
 						HStack(spacing: 8) {
-							Text(product.code.icon)
+							Text(item.product.code.icon)
 								.font(.largeTitle)
-							Text(product.name)
+							Text(item.product.name)
 								.font(.headline)
 							Spacer()
-							Text(product.price, format: .currency(code: "EUR"))
+							Text(item.product.price, format: .currency(code: "EUR"))
 						}
 					}
 				}
@@ -40,7 +40,7 @@ struct CheckoutView: View {
 							.font(.headline)
 						Spacer()
 						Text(
-							cart.reduce(.zero, { sum, product in sum + product.price }),
+							cart.reduce(.zero, { sum, item in sum + item.product.price }),
 							format: .currency(code: "EUR")
 						)
 					}
@@ -111,7 +111,7 @@ struct CheckoutView: View {
 struct CheckoutView_Previews: PreviewProvider {
 
 	static var previews: some View {
-		CheckoutView(cart: Catalog.sample.products) { _ in }
+		CheckoutView(cart: Catalog.sample.products.map(CartItem.init)) { _ in }
 	}
 
 }

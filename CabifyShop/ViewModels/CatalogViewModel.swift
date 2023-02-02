@@ -11,7 +11,7 @@ import Foundation
 class CatalogViewModel: ObservableObject {
 
 	@Published var catalog: NetworkResult<Catalog, Error> = .standby
-	@Published var cart: [Product] = []
+	@Published var cart: [CartItem] = []
 
 	func fetchCatalog() {
 		let url = URL(string: "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json")!
@@ -26,11 +26,11 @@ class CatalogViewModel: ObservableObject {
 	}
 
 	func addToCart(_ product: Product) {
-		cart.append(product)
+		cart.append(.init(product: product))
 	}
 
 	func removeFromCart(_ product: Product) {
-		guard let index = cart.lastIndex(of: product) else { return }
+		guard let index = cart.lastIndex(where: { $0.product.id == product.id }) else { return }
 		cart.remove(at: index)
 	}
 
