@@ -28,37 +28,44 @@ class CatalogViewModel: ObservableObject {
 	func addToCart(_ product: Product) {
 		guard var catalog = catalog.value else { return }
 		cart.append(.init(product: product))
+		updateCatalog(&catalog, for: product)
+		self.catalog = .success(catalog)
+	}
+
+	func removeFromCart(_ product: Product) {
+		guard var catalog = catalog.value else { return }
+		guard let index = cart.lastIndex(where: { $0.product.id == product.id }) else { return }
+		cart.remove(at: index)
+		updateCatalog(&catalog, for: product)
+		self.catalog = .success(catalog)
+	}
+
+	private func updateCatalog(_ catalog: inout Catalog, for product: Product) {
 		switch product.code {
 			case .voucher:
 				let index = catalog.products.firstIndex { $0.code == .voucher }
 				let count = cart
 					.filter { $0.product.code == .voucher }
 					.count
+				let modifiedPrice: Decimal? = count.isMultiple(of: 2) ? nil : 0
 				if let index {
-					catalog.products[index].modifiedPrice = count.isMultiple(of: 2) ? nil : 0
+					catalog.products[index].modifiedPrice = modifiedPrice
 				}
 			case .tshirt:
 				let count = cart
 					.filter { $0.product.code == .tshirt }
 					.count
-				if count >= 3 {
-					for index in cart.indices where cart[index].product.code == .tshirt {
-						cart[index].product.modifiedPrice = 19
-					}
-					let index = catalog.products.firstIndex { $0.code == .tshirt }
-					if let index {
-						catalog.products[index].modifiedPrice = 19
-					}
+				let modifiedPrice: Decimal? = count >= 3 ? 19 : nil
+				for index in cart.indices where cart[index].product.code == .tshirt {
+					cart[index].product.modifiedPrice = modifiedPrice
+				}
+				let index = catalog.products.firstIndex { $0.code == .tshirt }
+				if let index {
+					catalog.products[index].modifiedPrice = modifiedPrice
 				}
 			case .mug:
 				break
 		}
-		self.catalog = .success(catalog)
-	}
-
-	func removeFromCart(_ product: Product) {
-		guard let index = cart.lastIndex(where: { $0.product.id == product.id }) else { return }
-		cart.remove(at: index)
 	}
 
 }
