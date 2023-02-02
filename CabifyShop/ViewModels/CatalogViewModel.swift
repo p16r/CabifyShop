@@ -53,9 +53,7 @@ class CatalogViewModel: ObservableObject {
 					.filter { $0.product.code == .tshirt }
 					.count
 				let modifiedPrice: Decimal? = count >= 3 ? 19 : nil
-				for index in cart.indices where cart[index].product.code == .tshirt {
-					cart[index].product.modifiedPrice = modifiedPrice
-				}
+				updateCart(&cart, setNewPrice: modifiedPrice, for: .tshirt)
 				updateCatalog(&catalog, setNewPrice: modifiedPrice, for: .tshirt)
 			case .mug:
 				break
@@ -66,6 +64,12 @@ class CatalogViewModel: ObservableObject {
 		let index = catalog.products.firstIndex { $0.code == code }
 		guard let index else { return }
 		catalog.products[index].modifiedPrice = modifiedPrice
+	}
+
+	private func updateCart(_ cart: inout [CartItem], setNewPrice modifiedPrice: Decimal?, for code: Code) {
+		for index in cart.indices where cart[index].product.code == code {
+			cart[index].product.modifiedPrice = modifiedPrice
+		}
 	}
 
 }
