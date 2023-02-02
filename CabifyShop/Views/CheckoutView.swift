@@ -30,7 +30,7 @@ struct CheckoutView: View {
 							Text(item.product.name)
 								.font(.headline)
 							Spacer()
-							PriceView(for: item.product)
+							PriceView(for: item.product, layout: .horizontal(.firstTextBaseline))
 						}
 					}
 					.onDelete { indexSet in
@@ -49,7 +49,7 @@ struct CheckoutView: View {
 						Text("Total")
 							.font(.headline)
 						Spacer()
-						PriceView(for: cart)
+						PriceView(for: cart, layout: .horizontal(.firstTextBaseline))
 					}
 				}
 			}

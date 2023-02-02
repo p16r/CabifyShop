@@ -21,7 +21,7 @@ struct ProductCell: View {
 				Text(product.name)
 					.font(.headline)
 					.padding(.bottom, 8)
-				PriceView(for: product)
+				PriceView(for: product, layout: .vertical(.center))
 				Spacer()
 			}
 			.padding(.all, 16)
