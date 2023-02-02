@@ -10,7 +10,7 @@ import Foundation
 struct CartItem: Identifiable, Equatable {
 
 	let id = UUID()
-	let product: Product
+	var product: Product
 
 	static func ==(lhs: Self, rhs: Self) -> Bool {
 		lhs.id == rhs.id
