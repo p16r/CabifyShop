@@ -28,7 +28,7 @@ class CatalogViewModel: ObservableObject {
 	func addToCart(_ product: Product) {
 		guard var catalog = catalog.value else { return }
 		cart.append(.init(product: product))
-		updateCatalog(&catalog, for: product)
+		update(&catalog, &cart, with: product)
 		self.catalog = .success(catalog)
 	}
 
@@ -36,11 +36,11 @@ class CatalogViewModel: ObservableObject {
 		guard var catalog = catalog.value else { return }
 		guard let index = cart.lastIndex(where: { $0.product.id == product.id }) else { return }
 		cart.remove(at: index)
-		updateCatalog(&catalog, for: product)
+		update(&catalog, &cart, with: product)
 		self.catalog = .success(catalog)
 	}
 
-	private func updateCatalog(_ catalog: inout Catalog, for product: Product) {
+	private func update(_ catalog: inout Catalog, _ cart: inout [CartItem], with product: Product) {
 		switch product.code {
 			case .voucher:
 				let count = cart
