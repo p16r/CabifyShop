@@ -17,9 +17,20 @@ struct PriceView: View {
 		return price != modifiedPrice
 	}
 
+	init(_ price: Decimal, discountedTo modifiedPrice: Decimal? = nil) {
+		self.price = price
+		self.modifiedPrice = modifiedPrice
+	}
+
 	init(for product: Product) {
-		self.price = product.price
-		self.modifiedPrice = product.modifiedPrice
+		self.init(product.price, discountedTo: product.modifiedPrice)
+	}
+
+	init(for cart: [CartItem]) {
+		let (price, modifiedPrice): (Decimal, Decimal) = cart.reduce((0, 0)) { tuple, item in
+			(tuple.0 + item.product.price, tuple.1 + (item.product.modifiedPrice ?? item.product.price))
+		}
+		self.init(price, discountedTo: modifiedPrice	)
 	}
 
 	var body: some View {

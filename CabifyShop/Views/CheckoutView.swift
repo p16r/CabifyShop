@@ -28,7 +28,7 @@ struct CheckoutView: View {
 							Text(item.product.name)
 								.font(.headline)
 							Spacer()
-							Text(item.product.price, format: .currency(code: "EUR"))
+							PriceView(for: item.product)
 						}
 					}
 				}
@@ -39,10 +39,7 @@ struct CheckoutView: View {
 						Text("Total")
 							.font(.headline)
 						Spacer()
-						Text(
-							cart.reduce(.zero, { sum, item in sum + item.product.price }),
-							format: .currency(code: "EUR")
-						)
+						PriceView(for: cart)
 					}
 				}
 			}

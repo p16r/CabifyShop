@@ -21,7 +21,8 @@ struct ProductCell: View {
 				Text(product.name)
 					.font(.headline)
 					.padding(.bottom, 8)
-				Text(product.price, format: .currency(code: "EUR"))
+				PriceView(for: product)
+				Spacer()
 			}
 			.padding(.all, 16)
 			.frame(maxHeight: .infinity)
