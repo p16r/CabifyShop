@@ -9,7 +9,7 @@ import Foundation
 
 struct Catalog: Decodable {
 
-	let products: [Product]
+	var products: [Product]
 
 }
 
