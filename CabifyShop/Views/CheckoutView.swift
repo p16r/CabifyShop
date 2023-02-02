@@ -37,6 +37,9 @@ struct CheckoutView: View {
 						indexSet.forEach {
 							didRemoveItem(cart[$0])
 						}
+						if cart.isEmpty {
+							dismiss()
+						}
 					}
 				}
 				Section {
