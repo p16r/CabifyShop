@@ -36,6 +36,12 @@ final class CabifyShopTests: XCTestCase {
 		super.tearDown()
 	}
 
+	func testFetchCatalog() throws {
+		fetchCatalog()
+
+		XCTAssertNotNil(catalogAccumulator.latest)
+	}
+
 	private func setupState(timeout: TimeInterval, block: @escaping () throws -> Void) rethrows {
 		let expectation = expectation(description: "Awaiting state settle.")
 		try block()
