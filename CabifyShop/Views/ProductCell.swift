@@ -10,7 +10,11 @@ import SwiftUI
 struct ProductCell: View {
 
 	@ScaledMetric private var size = 80.0
-	let product: Product
+	private let product: Product
+
+	init(product: Product) {
+		self.product = product
+	}
 
 	var body: some View {
 		HStack {

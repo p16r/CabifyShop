@@ -9,15 +9,25 @@ import SwiftUI
 
 struct CheckoutView: View {
 
-	@Binding var cart: [CartItem]
+	@Binding private var cart: [CartItem]
 
-	let didRemoveItem: (CartItem) -> Void
-	let didCheckout: (CheckoutAction) -> Void
+	private let didRemoveItem: (CartItem) -> Void
+	private let didCheckout: (CheckoutAction) -> Void
 
 	@Environment(\.dismiss) private var dismiss
 
 	@State private var isShowingConfirmPurchaseAlert = false
 	@State private var isShowingConfirmClearAlert = false
+
+	init(
+		cart: Binding<[CartItem]>,
+		didRemoveItem: @escaping (CartItem) -> Void,
+		didCheckout: @escaping (CheckoutAction) -> Void
+	) {
+		self._cart = cart
+		self.didRemoveItem = didRemoveItem
+		self.didCheckout = didCheckout
+	}
 
 	var body: some View {
 		VStack(spacing: 0) {

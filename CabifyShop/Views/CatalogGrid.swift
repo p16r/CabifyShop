@@ -9,15 +9,15 @@ import SwiftUI
 
 struct CatalogGrid: View {
 
-	@Environment(\.dynamicTypeSize) var dynamicTypeSize
-	@Environment(\.horizontalSizeClass) var horizontalSizeClass
+	@Environment(\.dynamicTypeSize) private var dynamicTypeSize
+	@Environment(\.horizontalSizeClass) private var horizontalSizeClass
 
-	@State var selectedProduct: Product? = nil
-	@State var isShowingConfirmClearAlert = false
+	@State private var selectedProduct: Product? = nil
+	@State private var isShowingConfirmClearAlert = false
 
-	@StateObject var viewModel = CatalogViewModel(apiService: .gist())
+	@StateObject private var viewModel = CatalogViewModel(apiService: .gist())
 
-	var columns: [GridItem] {
+	private var columns: [GridItem] {
 		horizontalSizeClass == .compact && dynamicTypeSize.isAccessibilitySize
 			? [.init()]
 			: [.init(spacing: 16), .init()]

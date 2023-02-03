@@ -11,8 +11,13 @@ struct ProductDetailView: View {
 
 	@Environment(\.dismiss) private var dismiss
 
-	let product: Product
-	let cartAction: (CartAction, Product) -> Void
+	private let product: Product
+	private let cartAction: (CartAction, Product) -> Void
+
+	init(product: Product, cartAction: @escaping (CartAction, Product) -> Void) {
+		self.product = product
+		self.cartAction = cartAction
+	}
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 8) {
