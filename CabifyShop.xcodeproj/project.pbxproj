@@ -15,6 +15,7 @@
 		885DB884298AF1AF007C3297 /* CheckoutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DB883298AF1AF007C3297 /* CheckoutAction.swift */; };
 		885DB886298BC069007C3297 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DB885298BC069007C3297 /* PriceView.swift */; };
 		8860AE44298BD37D0004604B /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860AE43298BD37D0004604B /* CartItem.swift */; };
+		886CD6EB298D29EB00A95056 /* Accumulate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6EA298D29EB00A95056 /* Accumulate.swift */; };
 		886CD6ED298D2AEA00A95056 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6EC298D2AEA00A95056 /* APIService.swift */; };
 		886CD6FC298D2E2600A95056 /* GitHubGistAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */; };
 		886CD6FD298D2F0C00A95056 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6F2298D2C4C00A95056 /* MockAPIService.swift */; };
@@ -57,6 +58,7 @@
 		885DB883298AF1AF007C3297 /* CheckoutAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutAction.swift; sourceTree = "<group>"; };
 		885DB885298BC069007C3297 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		8860AE43298BD37D0004604B /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
+		886CD6EA298D29EB00A95056 /* Accumulate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Accumulate.swift; sourceTree = "<group>"; };
 		886CD6EC298D2AEA00A95056 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		886CD6F2298D2C4C00A95056 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGistAPIService.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				88F49CAC2988EDB9007C3C20 /* CabifyShopTests.swift */,
+				886CD6EA298D29EB00A95056 /* Accumulate.swift */,
 			);
 			path = CabifyShopTests;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			files = (
 				886CD6FD298D2F0C00A95056 /* MockAPIService.swift in Sources */,
 				88F49CAD2988EDB9007C3C20 /* CabifyShopTests.swift in Sources */,
+				886CD6EB298D29EB00A95056 /* Accumulate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
