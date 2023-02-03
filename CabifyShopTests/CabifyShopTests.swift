@@ -105,6 +105,68 @@ final class CabifyShopTests: XCTestCase {
 		try assertPrices(price: 15.00, modifiedPrice: 15.00)
 	}
 
+	func testExpectedDiscount1() throws {
+		//
+		//	Items: VOUCHER, TSHIRT, MUG
+		//	Total: 32.50€
+
+		fetchCatalog()
+
+		try addToCart(.voucher)
+		try addToCart(.tshirt)
+		try addToCart(.mug)
+
+		try assertPrices(price: 32.50, modifiedPrice: 32.50)
+	}
+
+	func testExpectedDiscount2() throws {
+		//
+		//	Items: VOUCHER, TSHIRT, VOUCHER
+		//	Total: 25.00€
+
+		fetchCatalog()
+
+		try addToCart(.voucher)
+		try addToCart(.tshirt)
+		try addToCart(.voucher)
+
+		try assertPrices(price: 30.00, modifiedPrice: 25.00)
+	}
+
+	func testExpectedDiscount3() throws {
+		//
+		//	Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
+		//	Total: 81.00€
+
+		fetchCatalog()
+
+		try addToCart(.tshirt)
+		try addToCart(.tshirt)
+		try addToCart(.tshirt)
+		try addToCart(.voucher)
+		try addToCart(.tshirt)
+
+		try assertPrices(price: 85.00, modifiedPrice: 81.00)
+	}
+
+	func testExpectedDiscount4() throws {
+		//
+		//	Items: VOUCHER, TSHIRT, VOUCHER, VOUCHER, MUG, TSHIRT, TSHIRT
+		//	Total: 74.50€
+
+		fetchCatalog()
+
+		try addToCart(.voucher)
+		try addToCart(.tshirt)
+		try addToCart(.voucher)
+		try addToCart(.voucher)
+		try addToCart(.mug)
+		try addToCart(.tshirt)
+		try addToCart(.tshirt)
+
+		try assertPrices(price: 82.50, modifiedPrice: 74.50)
+	}
+
 	private func setupState(timeout: TimeInterval, block: @escaping () throws -> Void) rethrows {
 		let expectation = expectation(description: "Awaiting state settle.")
 		try block()
