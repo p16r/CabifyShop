@@ -29,7 +29,7 @@ struct ProductCell: View {
 			.multilineTextAlignment(.center)
 		}
 		.frame(maxWidth: .infinity)
-		.background(Color(uiColor: .systemBackground))
+		.background(Color(uiColor: .secondarySystemGroupedBackground))
 		.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 	}
 
