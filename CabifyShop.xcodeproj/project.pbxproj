@@ -16,6 +16,7 @@
 		885DB886298BC069007C3297 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885DB885298BC069007C3297 /* PriceView.swift */; };
 		8860AE44298BD37D0004604B /* CartItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8860AE43298BD37D0004604B /* CartItem.swift */; };
 		886CD6ED298D2AEA00A95056 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6EC298D2AEA00A95056 /* APIService.swift */; };
+		886CD6FC298D2E2600A95056 /* GitHubGistAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */; };
 		88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49C9B2988EDB9007C3C20 /* CabifyShop.swift */; };
 		88F49C9E2988EDB9007C3C20 /* CatalogGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49C9D2988EDB9007C3C20 /* CatalogGrid.swift */; };
 		88F49CA02988EDB9007C3C20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F49C9F2988EDB9007C3C20 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		885DB885298BC069007C3297 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		8860AE43298BD37D0004604B /* CartItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItem.swift; sourceTree = "<group>"; };
 		886CD6EC298D2AEA00A95056 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGistAPIService.swift; sourceTree = "<group>"; };
 		88F49C982988EDB9007C3C20 /* CabifyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabifyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F49C9B2988EDB9007C3C20 /* CabifyShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyShop.swift; sourceTree = "<group>"; };
 		88F49C9D2988EDB9007C3C20 /* CatalogGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogGrid.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				886CD6EC298D2AEA00A95056 /* APIService.swift */,
+				886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				8860AE44298BD37D0004604B /* CartItem.swift in Sources */,
 				88F49CCA2988F25D007C3C20 /* Product.swift in Sources */,
 				885DB886298BC069007C3297 /* PriceView.swift in Sources */,
+				886CD6FC298D2E2600A95056 /* GitHubGistAPIService.swift in Sources */,
 				88F49C9E2988EDB9007C3C20 /* CatalogGrid.swift in Sources */,
 				88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */,
 				885DB880298A874F007C3297 /* CartAction.swift in Sources */,
