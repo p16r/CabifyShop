@@ -34,7 +34,7 @@ struct CatalogGrid: View {
 						ProgressView()
 							.background(Color(uiColor: .systemBackground))
 					case .success(let catalog):
-						ZStack(alignment: .bottom) {
+						VStack(spacing: 0) {
 							ScrollView {
 								LazyVGrid(columns: columns, spacing: 16) {
 									ForEach(catalog.products) { product in

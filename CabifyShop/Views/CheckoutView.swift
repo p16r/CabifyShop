@@ -20,7 +20,7 @@ struct CheckoutView: View {
 	@State private var isShowingConfirmClearAlert = false
 
 	var body: some View {
-		ZStack(alignment: .bottom) {
+		VStack(spacing: 0) {
 			List {
 				Section {
 					ForEach(cart) { item in
