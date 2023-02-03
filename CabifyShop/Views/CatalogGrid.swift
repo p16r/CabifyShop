@@ -29,10 +29,10 @@ struct CatalogGrid: View {
 				switch viewModel.catalog {
 					case .standby:
 						Button("Fetch Catalog", action: viewModel.fetchCatalog)
-							.background(Color(uiColor: .systemBackground))
+							.background(Color(uiColor: .systemGroupedBackground))
 					case .loading:
 						ProgressView()
-							.background(Color(uiColor: .systemBackground))
+							.background(Color(uiColor: .systemGroupedBackground))
 					case .success(let catalog):
 						VStack(spacing: 0) {
 							ScrollView {
@@ -117,7 +117,7 @@ struct CatalogGrid: View {
 							Text(error.localizedDescription)
 							Button("Retry", action: viewModel.fetchCatalog)
 						}
-						.background(Color(uiColor: .systemBackground))
+						.background(Color(uiColor: .systemGroupedBackground))
 				}
 			}
 			.sheet(item: $selectedProduct) {
