@@ -77,6 +77,34 @@ final class CabifyShopTests: XCTestCase {
 		XCTAssertTrue(cart.isEmpty)
 	}
 
+	func testVoucherDiscount() throws {
+		fetchCatalog()
+
+		try addToCart(.voucher)
+		try addToCart(.voucher)
+
+		try assertPrices(price: 10.00, modifiedPrice: 5.00)
+	}
+
+	func testTshirtDiscount() throws {
+		fetchCatalog()
+
+		try addToCart(.tshirt)
+		try addToCart(.tshirt)
+		try addToCart(.tshirt)
+
+		try assertPrices(price: 60.00, modifiedPrice: 57.00)
+	}
+
+	func testMugDiscount() throws {
+		fetchCatalog()
+
+		try addToCart(.mug)
+		try addToCart(.mug)
+
+		try assertPrices(price: 15.00, modifiedPrice: 15.00)
+	}
+
 	private func setupState(timeout: TimeInterval, block: @escaping () throws -> Void) rethrows {
 		let expectation = expectation(description: "Awaiting state settle.")
 		try block()
