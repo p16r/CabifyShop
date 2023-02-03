@@ -106,7 +106,7 @@ struct CatalogGrid: View {
 								.fixedSize(horizontal: false, vertical: true)
 								.scenePadding(.horizontal)
 								.padding(.vertical, 16)
-								.background(.ultraThinMaterial)
+								.background(Color(uiColor: .systemGroupedBackground))
 							}
 						}
 					case .failure(let error):

@@ -112,7 +112,7 @@ struct CheckoutView: View {
 			}
 			.scenePadding(.horizontal)
 			.padding(.vertical, 16)
-			.background(.ultraThinMaterial)
+			.background(Color(uiColor: .systemGroupedBackground))
 		}
 		.navigationTitle("Checkout")
 		.navigationBarTitleDisplayMode(.inline)
