@@ -70,9 +70,12 @@ struct CheckoutView: View {
 				.foregroundColor(.white)
 				.clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 				.alert(isPresented: $isShowingConfirmPurchaseAlert) {
-					Alert(
+					let price = cart.reduce(0) { sum, item in
+						sum + (item.product.modifiedPrice ?? item.product.price)
+					}
+					return Alert(
 						title: Text("Confirm Purchase"),
-						message: Text("Proceed with purchase?"),
+						message: Text("Purchase \(cart.count) item(s) worth \(Text(price, format: .currency(code: "EUR")))?"),
 						primaryButton: .default(Text("Purchase")) {
 							didCheckout(.purchased(cart))
 							dismiss()
