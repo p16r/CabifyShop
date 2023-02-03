@@ -20,7 +20,7 @@ enum Code: String, Hashable, Decodable {
 			case .tshirt:
 				return "👕"
 			case .mug:
-				return "🍺"
+				return "☕️"
 		}
 	}
 
