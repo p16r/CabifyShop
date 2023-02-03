@@ -13,11 +13,14 @@ class CatalogViewModel: ObservableObject {
 	@Published var catalog: NetworkResult<Catalog, Error> = .standby
 	@Published var cart: [CartItem] = []
 
+	private let apiService: any APIService
+
+	init(apiService: APIService) {
+		self.apiService = apiService
+	}
+
 	func fetchCatalog() {
-		let url = URL(string: "https://gist.githubusercontent.com/palcalde/6c19259bd32dd6aafa327fa557859c2f/raw/ba51779474a150ee4367cda4f4ffacdcca479887/Products.json")!
-		catalog = .loading
-		URLSession.shared.dataTaskPublisher(for: url)
-			.map(\.data)
+		apiService.catalogPublisher()
 			.decode(type: Catalog.self, decoder: JSONDecoder())
 			.map(NetworkResult.success)
 			.catch { Just(NetworkResult.failure($0)) }

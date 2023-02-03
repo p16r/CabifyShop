@@ -15,7 +15,7 @@ struct CatalogGrid: View {
 	@State var selectedProduct: Product? = nil
 	@State var isShowingConfirmClearAlert = false
 
-	@StateObject var viewModel = CatalogViewModel()
+	@StateObject var viewModel = CatalogViewModel(apiService: .gist())
 
 	var columns: [GridItem] {
 		horizontalSizeClass == .compact && dynamicTypeSize.isAccessibilitySize
