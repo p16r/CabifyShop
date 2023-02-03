@@ -112,6 +112,9 @@ struct CheckoutView: View {
 			}
 			.scenePadding(.horizontal)
 			.padding(.vertical, 16)
+			.background(Color(uiColor: .systemBackground))
+			.clipShape(RoundedRectangle(cornerRadius: 32, style: .continuous))
+			.padding([.horizontal, .top], 16)
 			.background(Color(uiColor: .systemGroupedBackground))
 		}
 		.navigationTitle("Checkout")
