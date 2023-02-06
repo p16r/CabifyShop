@@ -19,6 +19,7 @@
 		886CD6ED298D2AEA00A95056 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6EC298D2AEA00A95056 /* APIService.swift */; };
 		886CD6FC298D2E2600A95056 /* GitHubGistAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */; };
 		886CD6FD298D2F0C00A95056 /* MockAPIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD6F2298D2C4C00A95056 /* MockAPIService.swift */; };
+		886CD7042991392C00A95056 /* AccessibleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886CD7032991392C00A95056 /* AccessibleStack.swift */; };
 		88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49C9B2988EDB9007C3C20 /* CabifyShop.swift */; };
 		88F49C9E2988EDB9007C3C20 /* CatalogGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F49C9D2988EDB9007C3C20 /* CatalogGrid.swift */; };
 		88F49CA02988EDB9007C3C20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88F49C9F2988EDB9007C3C20 /* Assets.xcassets */; };
@@ -62,6 +63,7 @@
 		886CD6EC298D2AEA00A95056 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		886CD6F2298D2C4C00A95056 /* MockAPIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAPIService.swift; sourceTree = "<group>"; };
 		886CD6FB298D2E2600A95056 /* GitHubGistAPIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGistAPIService.swift; sourceTree = "<group>"; };
+		886CD7032991392C00A95056 /* AccessibleStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessibleStack.swift; sourceTree = "<group>"; };
 		88F49C982988EDB9007C3C20 /* CabifyShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CabifyShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88F49C9B2988EDB9007C3C20 /* CabifyShop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CabifyShop.swift; sourceTree = "<group>"; };
 		88F49C9D2988EDB9007C3C20 /* CatalogGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogGrid.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		88F49CC52988F162007C3C20 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				886CD7032991392C00A95056 /* AccessibleStack.swift */,
 				88F49C9D2988EDB9007C3C20 /* CatalogGrid.swift */,
 				885DB881298AAD72007C3297 /* CheckoutView.swift */,
 				885DB885298BC069007C3297 /* PriceView.swift */,
@@ -360,6 +363,7 @@
 				88F49C9C2988EDB9007C3C20 /* CabifyShop.swift in Sources */,
 				885DB880298A874F007C3297 /* CartAction.swift in Sources */,
 				88F49CCE2988FA98007C3C20 /* ProductCell.swift in Sources */,
+				886CD7042991392C00A95056 /* AccessibleStack.swift in Sources */,
 				88F49CCC2988F290007C3C20 /* Code.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
