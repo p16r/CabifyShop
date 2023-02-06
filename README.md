@@ -7,7 +7,7 @@ This app follows MVVM architecture and is made with zero external dependencies.
 ##	Navigation
 
 This app uses the new `NavigationStack` view that's new in iOS 16 for top level navigation, and the `LazyVGrid` view
-introduced in uOS 14 to show the fetched products in a grid. The product detail page is presented modally while the
+introduced in iOS 14 to show the fetched products in a grid. The product detail page is presented modally while the
 checkout view is pushed on top of the nagivation stack.
 
 ##	Accessibility
