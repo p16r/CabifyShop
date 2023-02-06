@@ -34,13 +34,14 @@ struct CheckoutView: View {
 			List {
 				Section {
 					ForEach(cart) { item in
+						let product = item.product
 						HStack(spacing: 8) {
-							Text(item.product.code.icon)
+							Text(product.code.icon)
 								.font(.largeTitle)
-							Text(item.product.name)
+							Text(product.name)
 								.font(.headline)
 							Spacer()
-							PriceView(for: item.product, layout: .horizontal(.firstTextBaseline, accessibleHorizontalAlignment: .trailing))
+							PriceView(for: product, layout: .horizontal(.firstTextBaseline, accessibleHorizontalAlignment: .trailing))
 						}
 					}
 					.onDelete { indexSet in
