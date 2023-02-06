@@ -11,10 +11,12 @@ struct PriceView: View {
 
 	enum Layout {
 
-		case horizontal(VerticalAlignment)
+		case horizontal(VerticalAlignment, accessibleHorizontalAlignment: HorizontalAlignment = .center)
 		case vertical(HorizontalAlignment)
 
 	}
+
+	@Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
 	private let price: Decimal
 	private let modifiedPrice: Decimal?
@@ -53,9 +55,15 @@ struct PriceView: View {
 
 	var body: some View {
 		switch layout {
-			case .horizontal(let verticalAlignment):
-				HStack(alignment: verticalAlignment, spacing: 4) {
-					stackContents
+			case .horizontal(let verticalAlignment, let accessibleHorizontalAlignment):
+				if dynamicTypeSize.isAccessibilitySize {
+					VStack(alignment: accessibleHorizontalAlignment, spacing: 4) {
+						stackContents
+					}
+				} else {
+					HStack(alignment: verticalAlignment, spacing: 4) {
+						stackContents
+					}
 				}
 			case .vertical(let horizontalAlignment):
 				VStack(alignment: horizontalAlignment, spacing: 4) {

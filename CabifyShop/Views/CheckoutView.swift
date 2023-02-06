@@ -40,7 +40,7 @@ struct CheckoutView: View {
 							Text(item.product.name)
 								.font(.headline)
 							Spacer()
-							PriceView(for: item.product, layout: .horizontal(.firstTextBaseline))
+							PriceView(for: item.product, layout: .horizontal(.firstTextBaseline, accessibleHorizontalAlignment: .trailing))
 						}
 					}
 					.onDelete { indexSet in
@@ -59,7 +59,7 @@ struct CheckoutView: View {
 						Text("Total")
 							.font(.headline)
 						Spacer()
-						PriceView(for: cart, layout: .horizontal(.firstTextBaseline))
+						PriceView(for: cart, layout: .horizontal(.firstTextBaseline, accessibleHorizontalAlignment: .trailing))
 					}
 				}
 			}

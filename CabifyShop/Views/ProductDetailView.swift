@@ -26,7 +26,7 @@ struct ProductDetailView: View {
 				.frame(maxWidth: .infinity)
 			Text(product.name)
 				.font(.title)
-			PriceView(for: product, layout: .horizontal(.firstTextBaseline))
+			PriceView(for: product, layout: .horizontal(.firstTextBaseline, accessibleHorizontalAlignment: .leading))
 				.padding(.bottom, 16)
 			HStack(spacing: 16) {
 				Button("Add To Cart") {
