@@ -35,18 +35,13 @@ struct CatalogGrid: View {
 							.background(Color(uiColor: .systemGroupedBackground))
 					case .success(let catalog):
 						VStack(spacing: 0) {
-							ScrollView {
-								LazyVGrid(columns: columns, spacing: 16) {
-									ForEach(catalog.products) { product in
-										ProductCell(product: product)
-											.onTapGesture {
-												selectedProduct = product
-											}
+							if viewModel.cart.isEmpty {
+								scrollView(for: catalog)
+									.refreshable {
+										viewModel.fetchCatalog()
 									}
-								}
-							}
-							.scenePadding(.horizontal)
-							if viewModel.cart.isEmpty == false {
+							} else {
+								scrollView(for: catalog)
 								HStack(spacing: 16) {
 									NavigationLink(
 										destination: {
@@ -136,6 +131,20 @@ struct CatalogGrid: View {
 		.task {
 			viewModel.fetchCatalog()
 		}
+	}
+
+	private func scrollView(for catalog: Catalog) -> some View {
+		ScrollView {
+			LazyVGrid(columns: columns, spacing: 16) {
+				ForEach(catalog.products) { product in
+					ProductCell(product: product)
+						.onTapGesture {
+							selectedProduct = product
+						}
+				}
+			}
+		}
+		.scenePadding(.horizontal)
 	}
 
 }
