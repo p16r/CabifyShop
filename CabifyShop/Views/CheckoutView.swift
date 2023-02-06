@@ -64,7 +64,10 @@ struct CheckoutView: View {
 					}
 				}
 			}
-			HStack {
+			AccessibleStack(
+				alignment: .horizontal(.center, accessibleHorizontalAlignment: HorizontalAlignment.center),
+				spacing: 16
+			) {
 				Button(
 					action: {
 						isShowingConfirmPurchaseAlert = true

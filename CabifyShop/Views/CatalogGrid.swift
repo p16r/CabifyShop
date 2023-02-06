@@ -42,7 +42,10 @@ struct CatalogGrid: View {
 									}
 							} else {
 								scrollView(for: catalog)
-								HStack(spacing: 16) {
+								AccessibleStack(
+									alignment: .horizontal(.center, accessibleHorizontalAlignment: HorizontalAlignment.center),
+									spacing: 16
+								) {
 									NavigationLink(
 										destination: {
 											CheckoutView(
